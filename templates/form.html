@@ -27,6 +27,9 @@
     <div class="mb-3">
         {{ form.phone.label(class="form-label") }}
         {{ form.phone(class="form-control") }}
+        <div id="phoneHelpBlock" class="form-text">
+            Numer telefonu musi być w formacie xxx-xxx-xxx
+        </div>
         {% if form.phone.errors %}
             <span style="color: red;">{{ form.phone.errors[0] }}</span>
         {% endif %}
