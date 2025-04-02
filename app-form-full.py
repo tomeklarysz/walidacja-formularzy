@@ -12,8 +12,8 @@ def index():
 def form():
     form = registerForm()
     if form.validate_on_submit():
-        return redirect('/')
-    return render_template('form.html', form=form)
+        return redirect(url_for("index"))
+    return render_template('form-full.html', form=form)
 
 @app.route("/success")
 def success():
