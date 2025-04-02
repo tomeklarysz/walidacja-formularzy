@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Formularz z walidacją po stronie serwera</h2>
+    <form id="validationForm" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control") }}
+            {% if form.name.errors %}
+            <span style="color: red;">{{ form.name.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control") }}
+            {% if form.email.errors %}
+            <span style="color: red;">{{ form.email.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.age.label(class="form-label") }}
+            {{ form.age(class="form-control") }}
+            {% if form.age.errors %}
+            <span style="color: red;">{{ form.age.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div class="mb-3">
+            {{ form.phone.label(class="form-label") }}
+            {{ form.phone(class="form-control") }}
+            <div id="phoneHelpBlock" class="form-text">
+                Numer telefonu musi być w formacie xxx-xxx-xxx
+            </div>
+            {% if form.phone.errors %}
+            <span style="color: red;">{{ form.phone.errors[0] }}</span>
+            {% endif %}
+        </div>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+{% endblock %}
